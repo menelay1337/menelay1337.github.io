@@ -1,6 +1,6 @@
 body {
      color: #ffffff;
-     background-image: url("../src/background1.png");
+     background-image: url("/src/background1.png");
      background-repeat: no-repeat;
      font-family: Metropolis,Gotham,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
