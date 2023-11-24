@@ -13,7 +13,7 @@
 
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="/css/style.css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
 
 </head>
 
@@ -41,42 +41,37 @@
 
 
 	<!-- Header -->
+	<nav class="navbar navbar-expand-lg my-0 p-0">
 	<div class="container-fluid">
-		<nav class="navbar navbar-expand-lg my-0 p-0">
-		<div class="container-fluid">
-			 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			 <span class="navbar-toggler-icon"></span>
+			<a class="navbar-brand p-0 m-0" href="index.html">
+			<img class="icon img-fluid" src="https://static.bandainamcoent.eu/high/tekken/tekken-8/00-page-setup/tekken8_logo.jpg.png" alt=""/>
+			</a>
+			 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">		
+			  <span class="navbar-toggler-icon"></span>
 			  </button>
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					 <li>
-					    <a class="navbar-brand" href="#"><img src="https://static.bandainamcoent.eu/high/tekken/tekken-8/00-page-setup/tekken8_logo.jpg.png" alt=""></a>
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+					<li class="nav-item p-3 m-3">
+       					 <a class="h3" href="heroes.html">All heroes</a>
 					 </li>
-       					 <li class="nav-item">
-       					   <a class="h3 p-2 m-3" style="text-decoration: none;" href="basket.html">Show now!</a>
+       					 <li class="nav-item p-3 m-3">
+       					   <a class="h3" href="basket.html">Show now!</a>
        					 </li>
-       					 <li class="nav-item panel">
-       					   <a class="h3 p-2 m-3" style="text-decoration: none;" href="admin.html">Admin</a>
+       					 <li class="nav-item p-3 m-3 panel">
+       					   <a class="h3" href="admin.html">Admin</a>
        					 </li>
+					 <li class="nav-item m-1 p-1">
+					  	<button id="modalBtn" class="btn">
+					  	 <figure>
+					  	      <img class="icon" style="width: 60px; height:60px;" src="src/usericon.png" alt="">
+					  	      <figcaption style="text-align: center; color: white;" id="userName">Register</figcaption>
+					  	 </figure>
+					  	 </button>
+					</li>
 				  </ul>
-
-				  <li class="nav-item p-2">
-					  <button id="modalBtn" class="btn">
-					   <figure>
-						<img class="icon" style="width: 60px; height:60px;" src="src/usericon.png" alt="">
-						<figcaption style="text-align: center; color: white;" id="userName">Register</figcaption>
-					   </figure>
-					   </button>
-				  </li>
-
-				   <span class="">
-     					   <button class="btn"><img style="height: 50px; width: 50px;" class="icon" src="src/magnifier.png" alt=""></button>
-     				   </span>
-			  	
 			  </div>
-		</div>
-		</nav>
 	</div>
+	</nav>
 	<!-- Animated Header-->
 	<animatedHeader style="position: relative;">
 
@@ -84,14 +79,14 @@
               <source data-src="https://static.bandainamcoent.eu/video/tekken8/TKN8-animated-header.webm" type="video/webm" src="https://static.bandainamcoent.eu/video/tekken8/TKN8-animated-header.webm">
               <source data-src="https://static.bandainamcoent.eu/video/tekken8/TKN8-animated-header.mp4" type="video/mp4" src="https://static.bandainamcoent.eu/video/tekken8/TKN8-animated-header.mp4">
           </video>
-	  <img class="icon" id="centralicon" style="position: absolute; bottom:20px; left: 640px; " src="src/t8logo.png" alt=""/>
+	      <img class="icon" id="centralicon" style="position: absolute; bottom:20px; left: 640px; " src="src/t8logo.png" alt=""/>
 	</animatedHeader>
 
 	<!-- Date-->
 	<date class="m-5">
 	<center><h1>TEKKEN 8</h1></center>
 	<center><p> <span style="color: red;">Release date:</span>26/01/2024 &nbsp <span style="color: red;"> Gengres:</span>3D fighting &nbsp <span style="color: red;">Developer:</span> Bandai Namco Studios Inc. – TEKKEN Project </p></center>
-		<center><a style="" href="http://www.url.com" target="_blank">Press kit</a></center>
+		<center><a style="" href="basket.html" >Press kit</a></center>
 	</date>
 
 	<!-- Gameplay -->
@@ -117,7 +112,7 @@
 				<img style="width: 80px; height: 80px;" src="src/ps.png" alt=""/> <br>  
 				<div style="display: inline-block;" class="p-1 border border-danger basket">
 				<img class="" style="display: inline; width: 30px; height: 30px;" src="src/shop.png" alt=""/> 
-				<span style="color: white;">Order now!</span>
+				<span><a style="color: white; text-decoration:none;" href="basket.html">Order now!</a></span>
 				</div>
 				<div style="display: inline-block;" class="p-1 border border-danger favourite">
 					<img style="display: inline; width: 30px; height: 30px;" src="src/heart.png" alt=""/> 
@@ -215,7 +210,7 @@
 
 </footer>
 
-	<script src="/js/index.js" charset="utf-8"></script>
+	<script src="index.js" charset="utf-8"></script>
 </body>
 
 </html>

@@ -1,10 +1,23 @@
 body {
      color: #ffffff;
-     background-image: url("/src/background1.png");
+     background-image: url("src/background1.png");
      background-repeat: no-repeat;
      font-family: Metropolis,Gotham,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
+.navbar {
+	background-color: black;
+}
+@media screen and (min-width: 500px){
+	#nav-icon {
+		width: 80%;
+	}
+}
+
+ul li { 
+	display: inline-block;
+	text-align: center;
+}
 
 #slider {
     background-image:  url("https://p325k7wa.twic.pics/high/tekken/tekken-8/00-page-setup/TKN8_page-bg-2.jpg?twic=v1/cover-min=1240x932&quot;);%22%3E%3C/div%3E");

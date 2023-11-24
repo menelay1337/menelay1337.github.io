@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<!-- CDNs -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="screen" title="no title" charset="utf-8">
+		
+		<!-- Page config -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Heroes</title>
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+
+	</head>
+	<body> 
+		<!--Header -->
+		<div class="container-fluid bg-secondary-subtle m-0 p-0"> 
+		<nav  class="navbar navbar-expand-lg my-0 p-0">
+		<div class="container-fluid">
+				<a class="navbar-brand p-0 m-0" href="index.html">
+				<img class="icon img-fluid" src="https://static.bandainamcoent.eu/high/tekken/tekken-8/00-page-setup/tekken8_logo.jpg.png" alt=""/>
+				</a>
+				 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">		
+				  <span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+						<li class="nav-item p-3 m-3">
+       						 <a class="h3" href="heroes.html">All heroes</a>
+						 </li>
+       						 <li class="nav-item p-3 m-3">
+       						   <a class="h3" href="basket.html">Show now!</a>
+       						 </li>
+       						 <li class="nav-item p-3 m-3 panel">
+       						   <a class="h3" href="admin.html">Admin</a>
+       						 </li>
+						 <li class="nav-item m-1 p-1">
+						  	<button id="modalBtn" class="btn">
+						  	 <figure>
+						  	      <img class="icon" style="width: 60px; height:60px;" src="src/usericon.png" alt="">
+						  	      <figcaption style="text-align: center; color: white;" id="userName">Register</figcaption>
+						  	 </figure>
+						  	 </button>
+						</li>
+					  </ul>
+				  </div>
+		</div>
+		</nav>
+			
+		</div>
+
+	<!--Description-->
+	<article class="fs-3 my-5">
+		<h3 class="text-center h1">Explore the heroes of TEKKEN 8!</h3>
+		<p class="text-center">Learn their unique abitilities, background, skills and see them at a fight!</p>
+	</article>
+
+	<!-- Filter -->
+		<p class="h2 text-center">Filter fighters</p>
+		<div class="row justify-content-center">
+                    <button type="button" class="col-2 btn btn-dark fs-4 text-light m-2" onclick="showAll()">ALL</button>
+                    <button type="button" class="col-2 btn btn-dark fs-4 text-light m-2" onclick="filterTEKKEN8()"> TEKKEN 8 </button>
+                    <button type="button" class="col-2 btn btn-dark fs-4 text-light m-2" onclick="filterTEKKEN7()"> TEKKEN 7 </button>
+                </div>
+
+	<!-- Heroes -->
+		<div class="row">
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/5/52/Kazuya_Mishima_TK8.jpg/revision/latest/scale-to-width-down/1000?cb=20230810104740&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Kazuya Mishima</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/d/d9/T8_-_Jin_Render.jpg/revision/latest?cb=20230810104013&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Jin Kazama</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/3/32/ReinaT8render.jpg/revision/latest?cb=20231113232918&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Reina</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t7 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/9/93/T7FR_Heihachi.jpeg/revision/latest?cb=20211117030653&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Reina</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t7 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/c/c6/Armor_King_T7.jpg/revision/latest/scale-to-width-down/1000?cb=20181203160513&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Armor King</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/5/56/King_Tekken_8.jpg/revision/latest/scale-to-width-down/1000?cb=20230810111035&path-prefix=en"  width="300px" height="400px" alt=""/>
+					<figcaption>King</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/f/fd/Bryan_Fury_TK8_render-II.jpeg/revision/latest/scale-to-width-down/1000?cb=20230602001948&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Brian Fury</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/b/bc/Paul_Phoenix_TK8.jpg/revision/latest/scale-to-width-down/1000?cb=20230810110210&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Paul Phoenix</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t7 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/a/a2/Kazumi_CG.jpg/revision/latest/scale-to-width-down/1000?cb=20170408135406&path-prefix=en"   width="300px" height="400px" alt=""/>
+					<figcaption>Kazumi Mishima</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/b/b1/Tekken_8_-_Asuka_Render.jpg/revision/latest/scale-to-width-down/1000?cb=20230425185037&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Asuka Kazama</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/f/fe/Jun_Kazama_TK8.jpg/revision/latest?cb=20230902021633&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Jun Kazama</figcaption>
+				</figure>
+			</div>
+			<div class="col-lg-2 col-md-6 t8 text-center">
+				<figure>
+					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/c/c6/Marshall_Law_TK8.jpeg/revision/latest/scale-to-width-down/1000?cb=20230810110456&path-prefix=en" width="300px" height="400px" alt=""/>
+					<figcaption>Marshall Law</figcaption>
+				</figure>
+			</div>
+
+
+		</div>
+	</body>
+</html>
