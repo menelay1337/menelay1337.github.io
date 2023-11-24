@@ -12,6 +12,8 @@ a {
 .navbar {
 	background-color: black;
 }
+
+
 @media screen and (min-width: 500px){
 	#nav-icon {
 		width: 80%;
