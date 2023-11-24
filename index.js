@@ -68,11 +68,22 @@ document.getElementById("myForm").addEventListener('submit', function(event) {
 	registerValidate();
 });
 
+function renew(){
+	let obj = sessionStorage.getItem("current-user")
+	var login = obj.login
+	if (login === "Admin") {
+		document.querySelector(".panel").style.display = "block";
+	}
+	document.getElementById("userName").innerHTML = login;
+	btn.onclick = quit;
+
+}
 
 function quit(){
 		document.getElementById("userName").innerHTML = "Register";
 		document.querySelector(".panel").style.display = "none";
 		window.alert("You left from account")
+		sessionStorage.removeItem("current-user")
 		btn.onclick = function() {
 		  modal.style.display = "block";
 		}
@@ -91,7 +102,7 @@ function registerValidate(){
 	} else if (passwd.length < 8 ){
 		window.alert("password too weak!")
 	} else if ( sessionStorage.getItem(login) === null ) {
-		sessionStorage.setItem(login, passwd);
+		sessionStorage.setItem("current-user", JSON.stringify({"login": login, "email": email, "passwd": passwd}));
 		users.push({"login": login, "email": email, "passwd": passwd});
 		window.alert("Account has registered!");
 		modal.style.display = "none";

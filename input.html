@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Input</title>
+	</head>
+	<body>
+		<form  id="myForm" accept-charset="utf-8">
+		<input type="text" placeholder="your input" name="someinput" id="someinput" required/>
+		<input type="submit" value="Submit" name="" id="submit-btn"/>
+		</form>
+
+		<script charset="utf-8">
+			document.getElementById("myForm").addEventListener('submit', function(event){
+				event.preventDefault()
+				window.alert(this.someinput.value)
+				this.remove()
+			});
+		</script>
+	</body>
+</html>

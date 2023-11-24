@@ -3,67 +3,49 @@ var users = JSON.parse(sessionStorage.getItem("users"));
 var output = false
 
 function outputUsers(){
-	if (output === false) {
+	if (users.length === 0 ){
+		window.alert("Users list is empty!")
+	} else if (output === false) {
 		userTable.style.display="block";
-		for (let i = 1; i <= users.length; i++) {
-			userTable.innerHTML += `<tr id="user${i}"><td>${i}.</td><td id="user${i}-login">${users[i].login}</td> <td id="user${i}-email">${users[i].email}</td> <td id="user${i}-passwd">${users[i].passwd}</td></tr>`
+		for (let i = 0; i < users.length; i++) {
+			userTable.innerHTML += `<tr id="user${i}"><td>${i+1}.</td><td id="user${i}-login">${users[i].login}<button id="btn-login-${i}"type="button" onclick="takeInput(${i}, 'login')" class="ms-1 btn btn-secondary">edit</button></td> <td id="user${i}-email">${users[i].email}<button type="button" onclick="takeInput(${i}, 'email')" class="ms-1 btn btn-secondary">edit</button></td> <td id="user${i}-passwd">${users[i].passwd}<button type="button" onclick="takeInput(${i}, 'password')" class="ms-1 btn btn-secondary">edit</button></td><td><button type="button" onclick="deleteUser(${i})" class="ms-1 btn btn-secondary">delete</button></td></tr>`
 		}
 		userList.innerHTML += `<button class="p-3 m-3 btn btn-primary" id="menucloser" onclick="deleteMenu()">Remove menu</button>`
 		output = true
 	} else {
-		alert("You already has output")
+		window.alert("You already has output")
 	}
 }
 
-function edit(num) {
-	let answer = window.prompt(`Which property you want to change? \n email ::: login ::: password ::: no`);
-	if (answer != "no" ){
-			if ( answer === 'login' ) {
-				let assign = window.prompt("Enter the value for login ::: no")
-				if ( assign != 'no' ) { 
-				while (assign.length > 10 || assign.length == 0) {
-					assign = window.prompt("Enter the value with length less than 10");
-				}
-				users[num].login = assign;
-				window.alert(`login changed to ${assign}`)
-				}
-				
-
-			} else if ( answer === 'email' ) {
-				let assign = window.prompt("Enter the value for email ::: no")
-				if ( assign != 'no' ) { 
-				while (assign.length > 10 || assign.length == 0) {
-					assign = window.prompt("Enter the value with length less than 10");
-				}
-				users[num].email = assign;
-				window.alert(`email changed to ${assign}`)
-				}
-			} else if ( answer === 'password' ) {
-				let assign = window.prompt("Enter the value for password ::: no")
-				if ( assign != 'no' ) { 
-				while (assign.length > 15 || assign.length < 8) {
-					assign = window.prompt("Enter the value with length greater than 8 and lesser 15");
-				}
-				users[num].passwd = assign;
-				window.alert(`password changed to ${assign}`);
-			}} else { window.alert('undefined property');}
-					
-
-				
+function takeInput(num, type){
+	let input = window.prompt(`Enter new ${type} for ${num+1}th user`)
+	while (input.length < 4 && input.length > 10){
+		input = window.prompt(`Enter again new ${type} for ${num+1}th user`)		
+	}
+	if ( type === "login") {
+		users[num].login = input
+	sessionStorage.setItem("users", JSON.stringify(users));
+		window.alert("Successfully changed login")
+	} else if ( type === "email") {
+		users[num].email = input
+	sessionStorage.setItem("users", JSON.stringify(users));
+		window.alert("Successfully changed email")
+	} else if (type === "password") {
+		users[num].passwd = input
+	sessionStorage.setItem("users", JSON.stringify(users));
+		window.alert("Successfully changed password")
 	} else {
-	window.alert("no then returning to panel");
+		window.alert("Undefined type!")
 	}
-			let elem = document.getElementById(`user${num}`);
-			elem.remove();
-			userList.innerHTML += `<li id="user${num}" class="container p-2 m-2 border border-danger rounded"> login: ${users[num].login}; email: ${users[num].email}; passwd: ${users[num].passwd}; <button onclick="deleteItem(${num})">delete</button> <button onclick="edit(${num})">edit</button></li>` 
-			sessionStorage.setItem("users", JSON.stringify(users));
-
+	deleteMenu()
+	outputUsers()
 }
 
-function deleteItem(num){
-	delete users[num];
+function deleteUser(num){
+	users.splice(num, 1)
 	const deleted = document.getElementById(`user${num}`);
 	deleted.remove();
+	sessionStorage.setItem("users", JSON.stringify(users));
 }
 
 function deleteMenu(){
@@ -71,8 +53,13 @@ function deleteMenu(){
 	output = false
 	for (let i = 0; i < users.length; i++) {
 		let elem = document.getElementById(`user${i}`)
-		elem.remove()
+		if (elem != null) {
+			elem.remove()
+		}
 		//userTable.innerHTML += `<tr id="user${i}"><td id="user${i}-login">${users[i].login}</td> <td id="user${i}-email">${users[i].email}</td> <td id="user${i}-passwd">${users[i].passwd}</td></tr>`
+	}
+	if (document.getElementById(`user${users.length}`) != null ) {
+		document.getElementById(`user${users.length}`).remove()
 	}
 	let closer = document.getElementById("menucloser")
 	closer.remove()
