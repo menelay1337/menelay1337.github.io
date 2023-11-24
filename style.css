@@ -124,3 +124,8 @@ ul li {
   text-decoration: none;
   cursor: pointer;
 }
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
