@@ -1,8 +1,12 @@
 body {
-     color: #ffffff;
+     color: white;
      background-image: url("src/background1.png");
      background-repeat: no-repeat;
      font-family: Metropolis,Gotham,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+a {
+	color: white;
 }
 
 .navbar {

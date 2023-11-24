@@ -9,7 +9,35 @@
 
 		<title>Basket</title>
 </head>
-<body style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1966940.jpg&f=1&nofb=1&ipt=5496258ddecb8e534250bfb88e18a6329f6d2f7c52604ff4241f86592943c994&ipo=images'); background-size: cover">
+<body style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1966940.jpg&f=1&nofb=1&ipt=5496258ddecb8e534250bfb88e18a6329f6d2f7c52604ff4241f86592943c994&ipo=image://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp2665254.jpg&f=1&nofb=1&ipt=68ff88d83996b660bdac8166a45ae938d0f1011ba5e36bc16b6435919fa7e807&ipo=images'); background-size: cover;">
+		<!-- Modal form -->
+	<div id="myModal" class="modal">
+	<div class="modal-content">
+		 <span class="close">&times;</span>
+		<p class="display-6 text-center" id="formHeader" style="color:red;">Register!</p>
+	<div class="container center" id="containerForm">
+
+	<form class= "row g-2" action="" name="myForm" id="myForm" accept-charset="utf-8">
+		<label for="login" id="logheader"> New login:</label> <br>
+		<input type="text" value="" name="login" id="login"/> <br>
+		<label for="email"> Email:</label> <br>
+		<input type="email"  name="email" value="" name="email" id="email"/> <br>
+		<label for="passwd">password:</label> <br>
+		<input type="password" value="" name="passwd" id="passwd"/>
+		 <input type="submit" name="formsumbit" id="submitbtn"value="Register">
+
+	</form>
+	</div>
+	</div>
+	</div>
+		
+
+
+
+
+
+
+	<!-- Header -->
 			<nav class="navbar navbar-expand-lg my-0 p-0">
 			<div class="container-fluid">
 					<a class="navbar-brand p-0 m-0" href="index.html">
@@ -40,7 +68,7 @@
 							  	 </button>
 							</li>
 							 <li class="nav-item m-1 p-1">
-							  	<button  class="btn">
+							  	<button onclick="location.href = 'cart.html';" class="btn">
 							  	 <figure>
 							  	      <img class="icon" style="width: 60px; height:60px;" src="src/cart.png" alt="">
 							  	      <figcaption style="text-align: center; color: white;" id="userName">Cart</figcaption>
@@ -120,6 +148,6 @@
 			</div>
 		</div>
 		</div>
-
+		<script src="index.js" charset="utf-8"></script>
 </body>
 </html>
