@@ -33,6 +33,61 @@
 	</div>
 	</div>
 
+	<script>// In basket.html
+		const cartButton = document.querySelector('.btn-danger');
+		const cartValue = document.getElementById('form1');
+		
+		cartButton.addEventListener('click', () => {
+		
+		  const productId = document.querySelector('.btn-danger');; // Replace with actual product ID retrieval
+		
+		  // Fetch the cart data from cart.html
+		  fetch('/cart.html')
+			.then(response => response.text())
+			.then(html => {
+			  // Parse the HTML to get the value of the input element with the specified ID
+			  const cartHTML = new DOMParser().parseFromString(html, 'text/html');
+			  const cartInput = cartHTML.querySelector('#form1');
+			  const currentQuantity = parseInt(cartInput.value);
+		
+			  // Update the quantity for the specified product ID
+			  const updatedQuantity = currentQuantity + 1;
+			  cartInput.value = updatedQuantity;
+		
+			  // Save the updated cart data back to cart.html
+			  const updatedHTML = cartHTML.documentElement.outerHTML;
+			  fetch('/cart.html', {
+				method: 'PUT',
+				body: updatedHTML
+			  });
+			});
+		});
+		const addToCartButtons = document.querySelectorAll('.container-fluid button');
+	
+	for (const button of addToCartButtons) {
+	  button.addEventListener('click', () => {
+		const productId = button.dataset.productId;
+		const productData = {
+		  id: productId,
+		  name: 'Standard edition!',
+		  quantity: 1,
+		};
+	
+		// Check if product is already in cart
+		const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+		const existingProductIndex = cartItems.findIndex((item) => item.id === productId);
+	
+		if (existingProductIndex !== -1) {
+		  cartItems[existingProductIndex].quantity++;
+		} else {
+		  cartItems.push(productData);
+		}
+	
+		localStorage.setItem('cart', JSON.stringify(cartItems));
+	  });
+	}
+		</script>
+	
 
 	<!-- Header -->
 	<nav class="navbar navbar-expand-lg my-0 p-0">
@@ -107,23 +162,19 @@
 									</div>
 								<td class="align-middle">
 									<p class="mb-0" style="font-weight: 500;">Preorder Type</p>
-								</td>
-								<td class="align-middle">
-									<div class="d-flex flex-row">
-										<button class="btn btn-link px-2"
-												onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+									<td class="align-middle">
+										<div class="d-flex flex-row">
+										  <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
 											<i class="fas fa-minus"></i>
-										</button>
-
-										<input id="form1" min="0" name="quantity" value="0" type="number"
-											   class="form-control form-control-sm" style="width: 50px;" />
-
-										<button class="btn btn-link px-2"
-												onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+										  </button>
+									  
+										  <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" style="width: 50px;" />
+									  
+										  <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
 											<i class="fas fa-plus"></i>
-										</button>
-									</div>
-								</td>
+										  </button>
+										</div>
+									  </td>
 								<td class="align-middle">
 									<p class="mb-0" style="font-weight: 500;">можешь сам цену написать</p>
 								</td>
@@ -147,22 +198,19 @@
 								<td class="align-middle border-bottom-0">
 									<p class="mb-0" style="font-weight: 500;">Preorder Typel</p>
 								</td>
-								<td class="align-middle border-bottom-0">
+								<td class="align-middle">
 									<div class="d-flex flex-row">
-										<button class="btn btn-link px-2"
-												onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-											<i class="fas fa-minus"></i>
-										</button>
-
-										<input id="form1" min="0" name="quantity" value="0" type="number"
-											   class="form-control form-control-sm" style="width: 50px;" />
-
-										<button class="btn btn-link px-2"
-												onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-											<i class="fas fa-plus"></i>
-										</button>
+									  <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+										<i class="fas fa-minus"></i>
+									  </button>
+								  
+									  <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" style="width: 50px;" />
+								  
+									  <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+										<i class="fas fa-plus"></i>
+									  </button>
 									</div>
-								</td>
+								  </td>
 								<td class="align-middle border-bottom-0">
 									<p class="mb-0" style="font-weight: 500;">можешь сам цену написать</p>
 								</td>
@@ -186,7 +234,7 @@
 								<td class="align-middle border-bottom-0">
 									<p class="mb-0" style="font-weight: 500;">Preorder Typel</p>
 								</td>
-								<td class="align-middle border-bottom-0">
+								<td class="align-middle">
 									<div class="d-flex flex-row">
 										<button class="btn btn-link px-2"
 												onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
@@ -225,22 +273,19 @@
 								<td class="align-middle border-bottom-0">
 									<p class="mb-0" style="font-weight: 500;">Preorder Typel</p>
 								</td>
-								<td class="align-middle border-bottom-0">
+								<td class="align-middle">
 									<div class="d-flex flex-row">
-										<button class="btn btn-link px-2"
-												onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-											<i class="fas fa-minus"></i>
-										</button>
-
-										<input id="form1" min="0" name="quantity" value="0" type="number"
-											   class="form-control form-control-sm" style="width: 50px;" />
-
-										<button class="btn btn-link px-2"
-												onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-											<i class="fas fa-plus"></i>
-										</button>
+									  <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+										<i class="fas fa-minus"></i>
+									  </button>
+								  
+									  <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" style="width: 50px;" />
+								  
+									  <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+										<i class="fas fa-plus"></i>
+									  </button>
 									</div>
-								</td>
+								  </td>
 								<td class="align-middle border-bottom-0">
 									<p class="mb-0" style="font-weight: 500;">можешь сам цену написать</p>
 								</td>

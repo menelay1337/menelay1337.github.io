@@ -31,11 +31,60 @@
 	</div>
 	</div>
 		
+<script>// In basket.html
+	const cartButton = document.querySelector('.btn-danger');
+	const cartValue = document.getElementById('form1');
+	
+	cartButton.addEventListener('click', () => {
+	  // Get the product ID from the button or the product itself
+	  const productId = document.querySelector('.btn-danger');; // Replace with actual product ID retrieval
+	
+	  // Fetch the cart data from cart.html
+	  fetch('/cart.html')
+		.then(response => response.text())
+		.then(html => {
+		  // Parse the HTML to get the value of the input element with the specified ID
+		  const cartHTML = new DOMParser().parseFromString(html, 'text/html');
+		  const cartInput = cartHTML.querySelector('#form1');
+		  const currentQuantity = parseInt(cartInput.value);
+	
+		  // Update the quantity for the specified product ID
+		  const updatedQuantity = currentQuantity + 1;
+		  cartInput.value = updatedQuantity;
+	
+		  // Save the updated cart data back to cart.html
+		  const updatedHTML = cartHTML.documentElement.outerHTML;
+		  fetch('/cart.html', {
+			method: 'PUT',
+			body: updatedHTML
+		  });
+		});
+	});
+	const addToCartButtons = document.querySelectorAll('.container-fluid button');
 
+for (const button of addToCartButtons) {
+  button.addEventListener('click', () => {
+    const productId = button.dataset.productId;
+    const productData = {
+      id: productId,
+      name: 'Standard edition!',
+      quantity: 1,
+    };
 
+    // Check if product is already in cart
+    const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingProductIndex = cartItems.findIndex((item) => item.id === productId);
 
+    if (existingProductIndex !== -1) {
+      cartItems[existingProductIndex].quantity++;
+    } else {
+      cartItems.push(productData);
+    }
 
-
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  });
+}
+	</script>
 
 	<!-- Header -->
 			<nav class="navbar navbar-expand-lg my-0 p-0">
@@ -98,7 +147,7 @@
 				<li class="fs-3 ms-5 ps-1">Basegame</li>
 			</div>	
 			<div class="container-fluid text-center" style="position:relative;">
-			<button type="button" style="position: relative; bottom: 70px;" class="text-center btn btn-danger fs-3"> Add to cart</button>
+			<button type="button" data-product-id="1" style="position: relative; bottom: 70px;" class="text-center btn btn-danger fs-3"> Add to cart</button>
 			</div>
 
 		</div>
@@ -115,7 +164,7 @@
 				
 			</div>
 			<div class="container-fluid text-center">
-			<button type="button" style="position: relative; bottom: 70px;" class="btn btn-danger fs-3"> Add to cart</button>
+			<button type="button" data-product-id="1" style="position: relative; bottom: 70px;" class="btn btn-danger fs-3"> Add to cart</button>
 			</div>
 		</div>
 		<div class="col-lg-3 col-md-6">
@@ -129,7 +178,7 @@
 				<li class="fs-3 ms-5">Avatar skins: Kazuya Mishima, Jin Kazama, Jun Kazama</li>
 			</div>
 			<div class="container-fluid text-center">
-			<button type="button" style="position: relative; bottom: 70px;" class="btn btn-danger fs-3">Add to cart</button>
+			<button type="button" data-product-id="1" style="position: relative; bottom: 70px;" class="btn btn-danger fs-3">Add to cart</button>
 			</div>
 		</div>
 		<div class="col-lg-3 col-md-6">
@@ -144,7 +193,7 @@
 				<li class="fs-3 ms-5">All possible characters!</li>
 			</div>
 			<div class="container-fluid text-center">
-			<button type="button"  style="position: relative; bottom: 70px;" class="btn btn-danger fs-3"> Add to cart</button>
+			<button type="button" data-product-id="1" style="position: relative; bottom: 70px;" class="btn btn-danger fs-3"> Add to cart</button>
 			</div>
 		</div>
 		</div>
