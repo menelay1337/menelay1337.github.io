@@ -13,7 +13,7 @@
 
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="/css/style.css" media="screen" charset="utf-8">
 
 </head>
 
@@ -41,9 +41,10 @@
 
 
 	<!-- Header -->
+	<header style="">
 	<nav class="navbar navbar-expand-lg my-0 p-0">
 	<div class="container-fluid">
-			<a class="navbar-brand p-0 m-0" href="index.html">
+			<a class="navbar-brand p-0 m-0" href="/index.html">
 			<img class="icon img-fluid" src="https://static.bandainamcoent.eu/high/tekken/tekken-8/00-page-setup/tekken8_logo.jpg.png" alt=""/>
 			</a>
 			 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">		
@@ -52,30 +53,35 @@
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
 					<li class="nav-item p-3 m-3">
-       					 <a class="h3" href="heroes.html">All heroes</a>
+       					 <a class="h3" href="/html/heroes.html">All heroes</a>
 					 </li>
        					 <li class="nav-item p-3 m-3">
-       					   <a class="h3" href="basket.html">Show now!</a>
+       					   <a class="h3" href="/html/basket.html">Show now!</a>
        					 </li>
        					 <li class="nav-item p-3 m-3 panel">
-       					   <a class="h3" href="admin.html">Admin</a>
+       					   <a class="h3" href="/html/admin.html">Admin</a>
        					 </li>
 				  </ul>
 				  <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
 					 <li class="nav-item m-1 p-1">
-					  	<button id="modalBtn" class="btn">
-					  	 <figure>
+					  	<button onclick="quit()" id="modalBtn" class="btn">
+					  	 <figure >
 					  	      <img class="icon" style="width: 60px; height:60px;" src="src/usericon.png" alt="">
 					  	      <figcaption style="text-align: center; color: white;" id="userName">Register</figcaption>
 					  	 </figure>
 					  	 </button>
 					</li>
 					<li class="nav-item m-1 p-1">
-					  	<button  onclick="location.href = 'cart.html';" class="btn">
+					  	<button  onclick="location.href = '/html/cart.html';" class="btn position-relative">
 					  	 <figure>
-					  	      <img class="icon" style="width: 60px; height:60px;" src="src/cart.png" alt="">
-					  	      <figcaption style="text-align: center; color: white;" id="userName">Cart</figcaption>
+					  	      <img class="icon" style="width: 60px; height:60px;" src="/src/cart.png" alt="">
+					  	      <figcaption style="text-align: center; color: white;">Cart</figcaption>
 					  	 </figure>
+						  <span class="position-absolute top-0 start-1 translate-middle badge rounded-pill bg-danger">
+						    1
+						    <span class="visually-hidden">unread messages</span>
+						  </span>
+
 					  	 </button>
 					</li>
 
@@ -84,6 +90,7 @@
 			  </div>
 	</div>
 	</nav>
+	</header>
 	<!-- Animated Header-->
 	<animatedHeader style="position: relative;">
 
@@ -98,7 +105,7 @@
 	<date class="m-5">
 	<center><h1>TEKKEN 8</h1></center>
 	<center><p> <span style="color: red;">Release date:</span>26/01/2024 &nbsp <span style="color: red;"> Gengres:</span>3D fighting &nbsp <span style="color: red;">Developer:</span> Bandai Namco Studios Inc. – TEKKEN Project </p></center>
-		<center><a style="" href="basket.html" >Press kit</a></center>
+		<center><a style="" href="/html/basket.html" >Press kit</a></center>
 	</date>
 
 	<!-- Gameplay -->
@@ -123,11 +130,11 @@
 				<img style="width: 50px; height: 50px;" src="src/pc.png" alt=""/>
 				<img style="width: 80px; height: 80px;" src="src/ps.png" alt=""/> <br>  
 				<div style="display: inline-block;" class="p-1 border border-danger basket">
-				<img class="" style="display: inline; width: 30px; height: 30px;" src="src/shop.png" alt=""/> 
-				<span><a style="color: white; text-decoration:none;" href="basket.html">Order now!</a></span>
+				<img class="" style="display: inline; width: 30px; height: 30px;" src="/src/shop.png" alt=""/> 
+				<span><a style="color: white; text-decoration:none;" href="/html/basket.html">Order now!</a></span>
 				</div>
 				<div style="display: inline-block;" class="p-1 border border-danger favourite">
-					<img style="display: inline; width: 30px; height: 30px;" src="src/heart.png" alt=""/> 
+					<img style="display: inline; width: 30px; height: 30px;" src="/src/heart.png" alt=""/> 
 					<span style="color: red;">Add to wishlist!</span>
 				</div>
 				</preOrder>
@@ -221,8 +228,18 @@
 <footer>
 
 </footer>
-
-	<script src="index.js" charset="utf-8"></script>
+	<script charset="utf-8">
+		var user = JSON.parse(sessionStorage.getItem("current-user")) 
+		if ( user != null ) {
+			const elem = document.getElementById("userName")
+			elem.innerText = user.login
+			if (user.login === "Admin"){
+				const panel = document.getElementsByClassName("panel")
+				panel.style.display = "flex"
+			}
+		}
+	</script>
+	<script src="/js/index.js" charset="utf-8"></script>
 </body>
 
 </html>

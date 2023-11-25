@@ -9,6 +9,7 @@ var btn = document.getElementById("modalBtn");
 var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
   modal.style.display = "block";
+  quit()
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -73,6 +74,8 @@ function quit(){
 		document.getElementById("userName").innerHTML = "Register";
 		document.querySelector(".panel").style.display = "none";
 		window.alert("You left from account")
+		users.push(JSON.parse(sessionStorage.getItem("current-user")));
+		sessionStorage.removeItem("current-user")
 		btn.onclick = function() {
 		  modal.style.display = "block";
 		}
@@ -91,8 +94,8 @@ function registerValidate(){
 	} else if (passwd.length < 8 ){
 		window.alert("password too weak!")
 	} else if ( sessionStorage.getItem(login) === null ) {
-		sessionStorage.setItem(login, passwd);
-		users.push({"login": login, "email": email, "passwd": passwd});
+		sessionStorage.setItem("current-user", JSON.stringify({"login": login, "email": email, "passwd": passwd, "cart": {}}));
+		users.push({"login": login, "email": email, "passwd": passwd, "cart": {}});
 		window.alert("Account has registered!");
 		modal.style.display = "none";
 		if (login === "Admin") {

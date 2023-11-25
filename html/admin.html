@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<title>Admin page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body class="fs-5">	
+	<!-- Navbar -->
+
+  <div class="container-fluid bg-dark">
+	  <figure>
+    		<img class="img-fluid text-center" style="height:150px; width: 150px;" src="/src/hacker.png" alt=""/>
+		<figcaption><p class="display-6" style="color:red;">Admin panel</p></figcaption>
+	  </figure>
+<div class="dropdown">
+  <button class="btn btn-danger dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  	Actions 
+  </button>
+  <ul class="dropdown-menu">
+	  <li><a class="dropdown-item" onclick="history.back()" href="">Back to main page</a></li>
+	  <!-- <li><button class="dropdown-item" onclick="outputBaskets()">Watch baskets</button></li> -->
+    <li><button class="dropdown-item" onclick="outputUsers()">Watch/edit users data</button></li>
+  </ul>
+</div>
+  </div>
+	<table class="table table-dark table-striped m-3 p-3" style="display: none;" id="basketList">
+		<tr>
+		<th>#</th>
+		<th>User</th>
+		<th>Cart</th>
+		</tr>
+		
+	</table>
+  	
+	<table class="table table-dark table-striped m-3 p-3" style="display: none" id="userList">
+	 	<tr>
+		<th>#</th>
+	   	<th>Login</th>
+	   	<th>Email</th>
+	   	<th>Password</th>
+	 	</tr>
+	</table> 
+	<script src="/js/admin.js" charset="utf-8"></script>
+</body>
+</html>

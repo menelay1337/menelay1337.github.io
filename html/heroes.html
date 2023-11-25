@@ -11,7 +11,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Heroes</title>
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" charset="utf-8">
 
 	</head>
 	<body> 
@@ -40,7 +40,7 @@
 		<!--Header -->
 			<nav class="navbar navbar-expand-lg my-0 p-0">
 			<div class="container-fluid">
-					<a class="navbar-brand p-0 m-0" href="index.html">
+					<a class="navbar-brand p-0 m-0" href="/index.html">
 					<img class="icon img-fluid" src="https://static.bandainamcoent.eu/high/tekken/tekken-8/00-page-setup/tekken8_logo.jpg.png" alt=""/>
 					</a>
 					 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">		
@@ -49,7 +49,7 @@
 					  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
 							<li class="nav-item p-3 m-3">
-       							 <a class="h3" href="heroes.html">All heroes</a>
+       							 <a  class="h3" href="heroes.html">All heroes</a>
 							 </li>
        							 <li class="nav-item p-3 m-3">
        							   <a class="h3" href="basket.html">Show now!</a>
@@ -59,20 +59,26 @@
        							 </li>
 						  </ul>
 						  <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
-							 <li class="nav-item m-1 p-1">
+							<li class="nav-item m-1 p-1">
 							  	<button id="modalBtn" class="btn">
 							  	 <figure>
-							  	      <img class="icon" style="width: 60px; height:60px;" src="src/usericon.png" alt="">
+							  	      <img class="icon" style="width: 60px; height:60px;" src="/src/usericon.png" alt="">
 							  	      <figcaption style="text-align: center; color: white;" id="userName">Register</figcaption>
 							  	 </figure>
 							  	 </button>
 							</li>
+ 
 							<li class="nav-item m-1 p-1">
-							  	<button  onclick="location.href = 'cart.html';" class="btn">
+							  	<button  onclick="location.href = '/html/cart.html';" class="btn position-relative">
 							  	 <figure>
-							  	      <img class="icon" style="width: 60px; height:60px;" src="src/cart.png" alt="">
+							  	      <img class="icon" style="width: 60px; height:60px;" src="/src/cart.png" alt="">
 							  	      <figcaption style="text-align: center; color: white;" id="userName">Cart</figcaption>
 							  	 </figure>
+								  <span class="position-absolute top-0 start-1 translate-middle badge rounded-pill bg-danger">
+								    1
+								    <span class="visually-hidden">unread messages</span>
+								  </span>
+
 							  	 </button>
 							</li>
 
@@ -98,82 +104,152 @@
                 </div>
 
 	<!-- Heroes -->
+
+		<!-- The Modal -->
+		<div class="container-fluid">
+		<div id="tekkenModal" class="tekkenModal">
+		  <span class="xcross">&times;</span>
+		  <img class="tmodal-content" id="modalPoint">
+		  <div class="text-center p-3 m-3 display-6" id="tcaption"></div>
+		</div>
+			
+		</div>
+
 		<div class="row">
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/5/52/Kazuya_Mishima_TK8.jpg/revision/latest/scale-to-width-down/1000?cb=20230810104740&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id="img1" src="/src/kazuya.webp" width="300px" height="400px" alt="Kazuya Mishima, Cold-Blooded Oppressor, Country of Origin: Japan"/>
 					<figcaption>Kazuya Mishima</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/d/d9/T8_-_Jin_Render.jpg/revision/latest?cb=20230810104013&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id="img2" src="/src/jin.webp" width="300px" height="400px" alt="Jin Kazama, Lightning of Fate, Country of origin: Japan, Fighting style: Karate"/>
 					<figcaption>Jin Kazama</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/3/32/ReinaT8render.jpg/revision/latest?cb=20231113232918&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id="img3" src="/src/reina.webp" width="300px" height="400px" alt=""/>
 					<figcaption>Reina</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t7 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/9/93/T7FR_Heihachi.jpeg/revision/latest?cb=20211117030653&path-prefix=en" width="300px" height="400px" alt=""/>
-					<figcaption>Reina</figcaption>
+					<img class="icon" id="img4" src="/src/heihachi.webp" width="300px" height="400px" alt=""/>
+					<figcaption>Heihachi</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t7 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/c/c6/Armor_King_T7.jpg/revision/latest/scale-to-width-down/1000?cb=20181203160513&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id="img5" src="/src/armorking.webp" width="300px" height="400px" alt=""/>
 					<figcaption>Armor King</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/5/56/King_Tekken_8.jpg/revision/latest/scale-to-width-down/1000?cb=20230810111035&path-prefix=en"  width="300px" height="400px" alt=""/>
+					<img class="icon" id="img6" src="/src/king.webp"  width="300px" height="400px" alt=""/>
 					<figcaption>King</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/f/fd/Bryan_Fury_TK8_render-II.jpeg/revision/latest/scale-to-width-down/1000?cb=20230602001948&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id=="img7" src="/src/brian.webp" width="300px" height="400px" alt=""/>
 					<figcaption>Brian Fury</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/b/bc/Paul_Phoenix_TK8.jpg/revision/latest/scale-to-width-down/1000?cb=20230810110210&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id="img8" src="/src/paul.webp" width="300px" height="400px" alt=""/>
 					<figcaption>Paul Phoenix</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t7 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/a/a2/Kazumi_CG.jpg/revision/latest/scale-to-width-down/1000?cb=20170408135406&path-prefix=en"   width="300px" height="400px" alt=""/>
+					<img class="icon" id="img9" src="/src/kazumi.webp"   width="300px" height="400px" alt=""/>
 					<figcaption>Kazumi Mishima</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/b/b1/Tekken_8_-_Asuka_Render.jpg/revision/latest/scale-to-width-down/1000?cb=20230425185037&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id="img10" src="/src/asuka.webp" width="300px" height="400px" alt=""/>
 					<figcaption>Asuka Kazama</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/f/fe/Jun_Kazama_TK8.jpg/revision/latest?cb=20230902021633&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id="img11" src="/src/jun.webp" width="300px" height="400px" alt=""/>
 					<figcaption>Jun Kazama</figcaption>
 				</figure>
 			</div>
 			<div class="col-lg-2 col-md-6 t8 text-center">
 				<figure>
-					<img class="icon" src="https://static.wikia.nocookie.net/tekken/images/c/c6/Marshall_Law_TK8.jpeg/revision/latest/scale-to-width-down/1000?cb=20230810110456&path-prefix=en" width="300px" height="400px" alt=""/>
+					<img class="icon" id="img12" src="/src/marshall.webp" width="300px" height="400px" alt=""/>
 					<figcaption>Marshall Law</figcaption>
 				</figure>
 			</div>
 
 
 		</div>
-		<script src="index.js" charset="utf-8"></script>
+		<script charset="utf-8">
+			var characters = document.getElementsByClassName("col-lg-2")
+			function showAll(){
+				for (char of characters) {
+					char.style.display = "flex"
+				}
+			}
+
+			function filterTEKKEN7(){
+				for (char of characters) {
+					if (char.classList.contains("t7")){
+						char.style.display = "flex"
+					} else {
+						char.style.display = "none"
+					}
+				}
+			}
+			
+			function filterTEKKEN8(){
+				for (char of characters) {
+					if (char.classList.contains("t8")){
+						char.style.display = "flex"
+					} else {
+						char.style.display = "none"
+					}
+				}
+			}
+			var tModal = document.getElementById("tekkenModal")
+			for (let i = 1 ; i <= 12; i++) {
+				var simpleImg = document.getElementById(`img${i}`);
+				var modalImg = document.getElementById("modalPoint");
+				var captionText = document.getElementById("tcaption");
+				if (simpleImg != null ) {
+				simpleImg.onclick = function(){
+				  tModal.style.display = "block";
+				  modalImg.src = this.src;
+				  captionText.innerText = this.alt;
+				}
+				modalImg.style.height = "95%"
+				modalImg.style.width = "80%"
+				var span = document.getElementsByClassName("xcross")[0];
+				span.onclick = function() { 
+				  tModal.style.display = "none";
+				}}
+			}
+		</script>
+		<script src="/js/index.js" charset="utf-8"></script>
+		<script charset="utf-8">
+		var user = JSON.parse(sessionStorage.getItem("current-user")) 
+		if ( user != null ) {
+			const elem = document.getElementById("userName")
+			elem.innerText = user.login
+			if (user.login === "Admin"){
+				const panel = document.getElementsByClassName("panel")
+				panel.style.display = "flex"
+			}
+		}
+	
+
+		</script>
 	</body>
 </html>
