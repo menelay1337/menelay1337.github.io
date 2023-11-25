@@ -11,7 +11,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Heroes</title>
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+		<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" charset="utf-8">
 
 	</head>
 	<body> 
@@ -60,11 +60,25 @@
 						  </ul>
 						  <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
 							<li class="nav-item m-1 p-1">
-							  	<button  onclick="location.href = 'cart.html'; renew()" class="btn">
+							  	<button id="modalBtn" class="btn">
 							  	 <figure>
-							  	      <img class="icon" style="width: 60px; height:60px;" src="src/cart.png" alt="">
+							  	      <img class="icon" style="width: 60px; height:60px;" src="/src/usericon.png" alt="">
+							  	      <figcaption style="text-align: center; color: white;" id="userName">Register</figcaption>
+							  	 </figure>
+							  	 </button>
+							</li>
+ 
+							<li class="nav-item m-1 p-1">
+							  	<button  onclick="location.href = '/html/cart.html';" class="btn position-relative">
+							  	 <figure>
+							  	      <img class="icon" style="width: 60px; height:60px;" src="/src/cart.png" alt="">
 							  	      <figcaption style="text-align: center; color: white;" id="userName">Cart</figcaption>
 							  	 </figure>
+								  <span class="position-absolute top-0 start-1 translate-middle badge rounded-pill bg-danger">
+								    1
+								    <span class="visually-hidden">unread messages</span>
+								  </span>
+
 							  	 </button>
 							</li>
 
@@ -180,27 +194,27 @@
 		<script charset="utf-8">
 			var characters = document.getElementsByClassName("col-lg-2")
 			function showAll(){
-				for (character of characters) {
-						character.style.display = "flex"
+				for (char of characters) {
+					char.style.display = "flex"
 				}
 			}
 
 			function filterTEKKEN7(){
-				for (character of characters) {
-					if (character.classList.contains("t7")){
-						character.style.display = "flex"
+				for (char of characters) {
+					if (char.classList.contains("t7")){
+						char.style.display = "flex"
 					} else {
-						character.style.display = "none"
+						char.style.display = "none"
 					}
 				}
 			}
 			
 			function filterTEKKEN8(){
-				for (character of characters) {
-					if (character.classList.contains("t8")){
-						character.style.display = "flex"
+				for (char of characters) {
+					if (char.classList.contains("t8")){
+						char.style.display = "flex"
 					} else {
-						character.style.display = "none"
+						char.style.display = "none"
 					}
 				}
 			}
@@ -223,6 +237,19 @@
 				}}
 			}
 		</script>
-		<script src="index.js" charset="utf-8"></script>
+		<script src="/js/index.js" charset="utf-8"></script>
+		<script charset="utf-8">
+		var user = JSON.parse(sessionStorage.getItem("current-user")) 
+		if ( user != null ) {
+			const elem = document.getElementById("userName")
+			elem.innerText = user.login
+			if (user.login === "Admin"){
+				const panel = document.getElementsByClassName("panel")
+				panel.style.display = "flex"
+			}
+		}
+	
+
+		</script>
 	</body>
 </html>

@@ -2,6 +2,26 @@ var userTable = document.getElementById("userList");
 var users = JSON.parse(sessionStorage.getItem("users"));
 var output = false
 
+//var outputBasket = false
+//var basketList = document.getElementById("basketList")
+
+//function outputBaskets(){
+//	if (users.length === 0 ){
+//		window.alert("Users list is empty!")
+//	} else if (output === false) {
+//		basketList.style.display="block";
+//		for (let i = 0; i < users.length; i++) {
+//			basketList.innerHTML += `<tr id="cart${i}"><td>${i+1}</td><td>${users[i].login}</td><td id="cart${i}info"></td></tr>`
+//			let cartinfo = document.getElementById(`cart${i}info`)
+//			for (let j = 0; j < users[i].cart.length; j++){
+//				let currentcart = users[i].cart[j]
+//				cartinfo.innerHTML += `<span class="fs-3">${j}. ${currentcart.name}:</span> <img src= "${currentcart.path}" width="300px" height="200px;">`
+//			}
+//		}
+//	}
+//
+//}
+
 function outputUsers(){
 	if (users.length === 0 ){
 		window.alert("Users list is empty!")

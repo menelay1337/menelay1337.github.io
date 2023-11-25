@@ -13,7 +13,7 @@
 
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="/css/style.css" media="screen" charset="utf-8">
 
 </head>
 
@@ -53,30 +53,35 @@
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
 					<li class="nav-item p-3 m-3">
-       					 <a class="h3" href="heroes.html">All heroes</a>
+       					 <a class="h3" href="/html/heroes.html">All heroes</a>
 					 </li>
        					 <li class="nav-item p-3 m-3">
-       					   <a class="h3" href="basket.html">Show now!</a>
+       					   <a class="h3" href="/html/basket.html">Show now!</a>
        					 </li>
        					 <li class="nav-item p-3 m-3 panel">
-       					   <a class="h3" href="admin.html">Admin</a>
+       					   <a class="h3" href="/html/admin.html">Admin</a>
        					 </li>
 				  </ul>
 				  <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
 					 <li class="nav-item m-1 p-1">
-					  	<button id="modalBtn" class="btn">
-					  	 <figure>
+					  	<button onclick="quit()" id="modalBtn" class="btn">
+					  	 <figure >
 					  	      <img class="icon" style="width: 60px; height:60px;" src="src/usericon.png" alt="">
 					  	      <figcaption style="text-align: center; color: white;" id="userName">Register</figcaption>
 					  	 </figure>
 					  	 </button>
 					</li>
 					<li class="nav-item m-1 p-1">
-					  	<button  onclick="location.href = 'cart.html';" class="btn">
+					  	<button  onclick="location.href = 'cart.html';" class="btn position-relative">
 					  	 <figure>
 					  	      <img class="icon" style="width: 60px; height:60px;" src="src/cart.png" alt="">
-					  	      <figcaption style="text-align: center; color: white;" id="userName">Cart</figcaption>
+					  	      <figcaption style="text-align: center; color: white;">Cart</figcaption>
 					  	 </figure>
+						  <span class="position-absolute top-0 start-1 translate-middle badge rounded-pill bg-danger">
+						    1
+						    <span class="visually-hidden">unread messages</span>
+						  </span>
+
 					  	 </button>
 					</li>
 
@@ -223,8 +228,18 @@
 <footer>
 
 </footer>
-
-	<script src="index.js" charset="utf-8"></script>
+	<script charset="utf-8">
+		var user = JSON.parse(sessionStorage.getItem("current-user")) 
+		if ( user != null ) {
+			const elem = document.getElementById("userName")
+			elem.innerText = user.login
+			if (user.login === "Admin"){
+				const panel = document.getElementsByClassName("panel")
+				panel.style.display = "flex"
+			}
+		}
+	</script>
+	<script src="/js/index.js" charset="utf-8"></script>
 </body>
 
 </html>
