@@ -67,7 +67,7 @@ function deleteUser(num){
 	const deleted = document.getElementById(`user${num}`);
 	deleted.remove();
 	sessionStorage.setItem("users", JSON.stringify(users));
-	counter++
+	counter = counter + 1
 
 }
 
@@ -81,7 +81,7 @@ function deleteMenu(){
 		}
 		//userTable.innerHTML += `<tr id="user${i}"><td id="user${i}-login">${users[i].login}</td> <td id="user${i}-email">${users[i].email}</td> <td id="user${i}-passwd">${users[i].passwd}</td></tr>`
 	}
-	for ( let i = users.length; i < users.legth + counter; i++ ) {
+	for ( let i = users.length; i <= users.legth + counter; i++ ) {
 		let elem = document.getElementById(`user${i}`)
 		if (elem != null) {
 			elem.remove()
