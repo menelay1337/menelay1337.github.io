@@ -1,6 +1,7 @@
 var userTable = document.getElementById("userList");
 var users = JSON.parse(sessionStorage.getItem("users"));
 var output = false
+var counter = 0
 
 //var outputBasket = false
 //var basketList = document.getElementById("basketList")
@@ -66,6 +67,8 @@ function deleteUser(num){
 	const deleted = document.getElementById(`user${num}`);
 	deleted.remove();
 	sessionStorage.setItem("users", JSON.stringify(users));
+	counter++
+
 }
 
 function deleteMenu(){
@@ -78,9 +81,14 @@ function deleteMenu(){
 		}
 		//userTable.innerHTML += `<tr id="user${i}"><td id="user${i}-login">${users[i].login}</td> <td id="user${i}-email">${users[i].email}</td> <td id="user${i}-passwd">${users[i].passwd}</td></tr>`
 	}
-	if (document.getElementById(`user${users.length}`) != null ) {
-		document.getElementById(`user${users.length}`).remove()
+	for ( let i = users.length; i < users.legth + counter; i++ ) {
+		let elem = document.getElementById(`user${i}`)
+		if (elem != null) {
+			elem.remove()
+		}
+	
 	}
 	let closer = document.getElementById("menucloser")
 	closer.remove()
+	counter = 0
 }
