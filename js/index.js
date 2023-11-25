@@ -74,8 +74,6 @@ function quit(){
 		document.getElementById("userName").innerHTML = "Register";
 		document.querySelector(".panel").style.display = "none";
 		window.alert("You left from account")
-		users.push(JSON.parse(sessionStorage.getItem("current-user")));
-		sessionStorage.removeItem("current-user")
 		btn.onclick = function() {
 		  modal.style.display = "block";
 		}
