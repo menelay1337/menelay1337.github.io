@@ -52,7 +52,7 @@ a {
   to {transform: scale(1)}
 }
 
-.tgodal-content, #caption {  
+.tmodal-content, #caption {  
   animation-name: zoom;
   animation-duration: 0.6s;
 }
