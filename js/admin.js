@@ -85,13 +85,9 @@ function deleteMenu(){
 		}
 		//userTable.innerHTML += `<tr id="user${i}"><td id="user${i}-login">${users[i].login}</td> <td id="user${i}-email">${users[i].email}</td> <td id="user${i}-passwd">${users[i].passwd}</td></tr>`
 	}
-	for ( let i = users.length; i <= users.legth + counter; i++ ) {
-		let elem = document.getElementById(`user${i}`)
-		if (elem != null) {
-			elem.remove()
-		}
-	
-	}
+	for ( let child in userTable.children ) {
+		child.remove()
+	}	
 	let closer = document.getElementById("menucloser")
 	closer.remove()
 	counter = 0
