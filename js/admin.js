@@ -84,6 +84,7 @@ function deleteMenu(){
 
 	}
 	let closer = document.getElementById("menucloser")
+	output = false
 	closer.remove()
 	counter = 0
 }
