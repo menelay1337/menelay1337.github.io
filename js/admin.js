@@ -1,6 +1,7 @@
 var userTable = document.getElementById("userList");
 var users = JSON.parse(sessionStorage.getItem("users"));
 var output = false
+var counter = 0
 
 //var outputBasket = false
 //var basketList = document.getElementById("basketList")
@@ -28,7 +29,11 @@ function outputUsers(){
 	} else if (output === false) {
 		userTable.style.display="block";
 		for (let i = 0; i < users.length; i++) {
-			userTable.innerHTML += `<tr id="user${i}"><td>${i+1}.</td><td id="user${i}-login">${users[i].login}<button id="btn-login-${i}"type="button" onclick="takeInput(${i}, 'login')" class="ms-1 btn btn-secondary">edit</button></td> <td id="user${i}-email">${users[i].email}<button type="button" onclick="takeInput(${i}, 'email')" class="ms-1 btn btn-secondary">edit</button></td> <td id="user${i}-passwd">${users[i].passwd}<button type="button" onclick="takeInput(${i}, 'password')" class="ms-1 btn btn-secondary">edit</button></td><td><button type="button" onclick="deleteUser(${i})" class="ms-1 btn btn-secondary">delete</button></td></tr>`
+			if (users[i] != null) {
+		userTable.innerHTML += `<tr id="user${i}"><td>${i+1}.</td><td id="user${i}-login">${users[i].login}<button id="btn-login-${i}"type="button" onclick="takeInput(${i}, 'login')" class="ms-1 btn btn-secondary">edit</button></td> <td id="user${i}-email">${users[i].email}<button type="button" onclick="takeInput(${i}, 'email')" class="ms-1 btn btn-secondary">edit</button></td> <td id="user${i}-passwd">${users[i].passwd}<button type="button" onclick="takeInput(${i}, 'password')" class="ms-1 btn btn-secondary">edit</button></td><td><button type="button" onclick="deleteUser(${i})" class="ms-1 btn btn-secondary">delete</button></td></tr>`
+			} else {
+				users.slice(i, 1)
+			}
 		}
 		userList.innerHTML += `<button class="p-3 m-3 btn btn-primary" id="menucloser" onclick="deleteMenu()">Remove menu</button>`
 		output = true
@@ -66,6 +71,8 @@ function deleteUser(num){
 	const deleted = document.getElementById(`user${num}`);
 	deleted.remove();
 	sessionStorage.setItem("users", JSON.stringify(users));
+	counter = counter + 1
+
 }
 
 function deleteMenu(){
@@ -78,9 +85,14 @@ function deleteMenu(){
 		}
 		//userTable.innerHTML += `<tr id="user${i}"><td id="user${i}-login">${users[i].login}</td> <td id="user${i}-email">${users[i].email}</td> <td id="user${i}-passwd">${users[i].passwd}</td></tr>`
 	}
-	if (document.getElementById(`user${users.length}`) != null ) {
-		document.getElementById(`user${users.length}`).remove()
+	for ( let i = users.length; i <= users.legth + counter; i++ ) {
+		let elem = document.getElementById(`user${i}`)
+		if (elem != null) {
+			elem.remove()
+		}
+	
 	}
 	let closer = document.getElementById("menucloser")
 	closer.remove()
+	counter = 0
 }
