@@ -77,17 +77,12 @@ function deleteUser(num){
 
 function deleteMenu(){
 	userTable.style.display="none";
-	output = false
-	for (let i = 0; i < users.length; i++) {
-		let elem = document.getElementById(`user${i}`)
-		if (elem != null) {
-			elem.remove()
+	for (child of userTable.childNodes){
+		if (child.localName == "tbody" && child.hasAttribute("id")){
+			child.remove()
 		}
-		//userTable.innerHTML += `<tr id="user${i}"><td id="user${i}-login">${users[i].login}</td> <td id="user${i}-email">${users[i].email}</td> <td id="user${i}-passwd">${users[i].passwd}</td></tr>`
+
 	}
-	for ( let child in userTable.children ) {
-		child.remove()
-	}	
 	let closer = document.getElementById("menucloser")
 	closer.remove()
 	counter = 0
