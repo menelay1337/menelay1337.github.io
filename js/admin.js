@@ -77,11 +77,11 @@ function deleteUser(num){
 
 function deleteMenu(){
 	userTable.style.display="none";
-	for (child of userTable.childNodes){
-		if (child.localName == "tbody" && child.hasAttribute("id")){
-			child.remove()
+	for (let i = 0; i <= users.length + 5; i++ ){
+		let elem = document.getElementById(`user${i}`)
+		if (elem != null) {
+			elem.remove()
 		}
-
 	}
 	let closer = document.getElementById("menucloser")
 	output = false
